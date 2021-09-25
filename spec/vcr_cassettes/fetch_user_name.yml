@@ -1,0 +1,86 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/user
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.21.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Sat, 25 Sep 2021 20:56:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"c8bdff4046a07fe9de9a307fb8abb56e9ae9eb4518c6ffb0bca07749fa3a24a1"
+      Last-Modified:
+      - Thu, 24 Jun 2021 13:20:21 GMT
+      X-Oauth-Scopes:
+      - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
+        admin:repo_hook, gist, notifications, repo, user, workflow, write:discussion,
+        write:packages
+      X-Accepted-Oauth-Scopes:
+      - ''
+      Github-Authentication-Token-Expiration:
+      - 2021-10-25 20:24:36 UTC
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4992'
+      X-Ratelimit-Reset:
+      - '1632606292'
+      X-Ratelimit-Used:
+      - '8'
+      X-Ratelimit-Resource:
+      - core
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation,
+        Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - 41D6:3186:6A40DC3:6C4B36D:614F8CFA
+    body:
+      encoding: UTF-8
+      string: '{"login":"<LOGIN>","id":35730896,"node_id":"MDQ6VXNlcjM1NzMwODk2","avatar_url":"https://avatars.githubusercontent.com/u/35730896?v=4","gravatar_id":"","url":"https://api.github.com/users/<LOGIN>","html_url":"https://github.com/<LOGIN>","followers_url":"https://api.github.com/users/<LOGIN>/followers","following_url":"https://api.github.com/users/<LOGIN>/following{/other_user}","gists_url":"https://api.github.com/users/<LOGIN>/gists{/gist_id}","starred_url":"https://api.github.com/users/<LOGIN>/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/<LOGIN>/subscriptions","organizations_url":"https://api.github.com/users/<LOGIN>/orgs","repos_url":"https://api.github.com/users/<LOGIN>/repos","events_url":"https://api.github.com/users/<LOGIN>/events{/privacy}","received_events_url":"https://api.github.com/users/<LOGIN>/received_events","type":"User","site_admin":false,"name":"Maciej
+        Wicher","company":null,"blog":"","location":"Cracow","email":null,"hireable":null,"bio":null,"twitter_username":null,"public_repos":30,"public_gists":12,"followers":2,"following":0,"created_at":"2018-01-23T12:42:07Z","updated_at":"2021-06-24T13:20:21Z","private_gists":6,"total_private_repos":1,"owned_private_repos":1,"disk_usage":6150,"collaborators":3,"two_factor_authentication":true,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}'
+  recorded_at: Sat, 25 Sep 2021 20:56:27 GMT
+recorded_with: VCR 6.0.0
