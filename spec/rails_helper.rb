@@ -7,6 +7,8 @@ require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
+require 'vcr'
+require 'webmock/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -69,5 +71,30 @@ Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
     with.library :rails
+  end
+end
+
+VCR.configure do |config|
+  config.allow_http_connections_when_no_cassette = false
+  config.cassette_library_dir = 'test/cassettes'
+  config.hook_into :webmock
+  config.configure_rspec_metadata!
+
+  vcr_mode = /rec/i.match?(ENV['VCR_MODE']) ? :all : :once
+
+  config.default_cassette_options = {
+    record: vcr_mode,
+    match_requests_on: %i[method uri body],
+  }
+
+  config.filter_sensitive_data('<BEARER_TOKEN>') do |interaction|
+    if (auths = interaction.request.headers['Authorization']&.first) && (match = auths.match(/^Bearer\s+([^,\s]+)/))
+      match.captures.first
+    end
+  end
+  config.filter_sensitive_data('<TOKEN>') do |interaction|
+    if interaction.response.body != '' && (token = JSON(interaction.response.body)['token'])
+      token
+    end
   end
 end
