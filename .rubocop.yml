@@ -19,6 +19,7 @@ Layout/LineLength:
   IgnoredPatterns: ['(\A|\s)#']
   Exclude:
     - 'spec/**/*.rb'
+    - 'config/**/*.rb'
 Metrics/BlockLength:
   Exclude:
     - '**/*.rake'
