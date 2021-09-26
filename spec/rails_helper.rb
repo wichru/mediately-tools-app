@@ -75,6 +75,9 @@ Shoulda::Matchers.configure do |config|
 end
 
 VCR.configure do |config|
+  config.before_record do |i|
+    i.request.headers.delete('Authorization')
+  end
   config.allow_http_connections_when_no_cassette = false
   config.cassette_library_dir = 'spec/vcr_cassettes'
   config.hook_into :webmock
@@ -87,14 +90,7 @@ VCR.configure do |config|
     match_requests_on: %i[method uri body],
   }
 
-  config.filter_sensitive_data('<BEARER_TOKEN>') do |interaction|
-    if (auths = interaction.request.headers['Authorization']&.first) && (match = auths.match(/^Bearer\s+([^,\s]+)/))
-      match.captures.first
-    end
-  end
-  config.filter_sensitive_data('<TOKEN>') do |interaction|
-    if interaction.response.body != '' && (token = JSON(interaction.response.body)['token'])
-      token
-    end
+  config.filter_sensitive_data('<LOGIN>') do |interaction|
+    JSON(interaction.response.body)['login'] if interaction.response.body != ''
   end
 end
