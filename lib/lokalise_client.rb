@@ -14,21 +14,4 @@ module LokaliseClient
   def client
     @client ||= Lokalise.client(Rails.application.credentials.lokalise[:api_key])
   end
-  #
-  # def key_params
-  #   {
-  #     keys: [
-  #       {
-  #         key_name: key_name,
-  #         platforms: %w[ios web android other],
-  #         translations: [
-  #           {
-  #             language_iso: 'en',
-  #             translation: 'Welcome',
-  #           },
-  #         ],
-  #       },
-  #     ],
-  #   }
-  # end
 end
