@@ -10,5 +10,6 @@ module MediatelyToolsApp
   class Application < Rails::Application
     config.load_defaults 6.1
     config.paths.add 'lib', eager_load: true
+    config.autoloader = :classic
   end
 end

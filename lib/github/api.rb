@@ -6,8 +6,8 @@ module Github::Api
   MAIN_BRANCH = 'develop'
   REPO_NAME = Rails.application.credentials.github[:repo_name]
 
-  def fetch_file(file_path:)
-    client.get(file_path)
+  def fetch_file(path:)
+    client.contents(REPO_NAME, path: path)
   rescue Octokit::NotFound
     false
   end
