@@ -8,4 +8,10 @@ RSpec.describe Tool, type: :model do
     it { should have_db_column(:language).of_type(:string) }
     it { should have_db_column(:json_spec).of_type(:json) }
   end
+
+  context 'validation' do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:language) }
+    it { should validate_length_of(:language).is_equal_to(2) }
+  end
 end
